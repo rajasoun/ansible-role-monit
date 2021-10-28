@@ -25,6 +25,12 @@ Use [Multipass](https://multipass.run/) for creating VM Locally
 
 ```
 $ git clone https://github.com/rajasoun/multipass-wrapper
+$ cd multipass-wrapper
+$ ./assist.bash multipass setup
+$ ./assist.bash multipass status
+$ ./assist.bash multipass shell
+$ sudo apt-get install ansible -y
+$ ansible-playbook ~/.ansible/roles/rajasoun.ansible_role_monit/local.yml
 ```
 
 ## Role Variables
