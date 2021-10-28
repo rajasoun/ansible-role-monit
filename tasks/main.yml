@@ -1,0 +1,13 @@
+---
+- include: debian/pkg.yml
+  tags: monit_pkg
+  when: ansible_os_family == "Debian"
+
+- include: config.yml
+  tags: monit_config
+
+- include: monitors.yml
+  tags: monit_monitors
+
+- include: service.yml
+  tags: monit_service

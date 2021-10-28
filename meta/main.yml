@@ -1,0 +1,18 @@
+---
+galaxy_info:
+  author: Raja Soundaramourty
+  description: Ansible role for configuring Monit.
+  min_ansible_version: 2.11
+  license: Apache
+  platforms:
+  - name: Debian
+    versions:
+    - all
+  - name: Ubuntu
+    versions:
+    - all
+
+  galaxy_tags:
+    - monitoring
+    - system
+dependencies: []
