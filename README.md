@@ -10,7 +10,7 @@ Install this role with [ansible-galaxy](https://galaxy.ansible.com/rajasoun/ansi
 
 ```shell
 $ ansible-galaxy install rajasoun.ansible_role_monit
-$ ansible-playbook -i ~/.ansible/roles/inventory ~/.ansible/roles/rajasoun.ansible_role_monit/local.yml
+$ ansible-playbook -i ~/.ansible/roles/rajasoun.ansible_role_monit/inventory ~/.ansible/roles/rajasoun.ansible_role_monit/local.yml
 ```
 
 ## Pre Requisites
