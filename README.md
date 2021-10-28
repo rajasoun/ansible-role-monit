@@ -12,10 +12,20 @@ Install this role with [ansible-galaxy](https://galaxy.ansible.com/rajasoun/ansi
 $ ansible-galaxy install rajasoun.ansible_role_monit
 ```
 
-## Requirements
+## Pre Requisites
 ------------
 
 An Ansible ready host.
+
+
+## Test
+------------
+
+Use [Multipass](https://multipass.run/) for creating VM Locally
+
+```
+$ git clone https://github.com/rajasoun/multipass-wrapper
+```
 
 ## Role Variables
 --------------

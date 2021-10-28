@@ -1,0 +1,33 @@
+---
+
+- hosts: all
+  sudo: yes
+
+  vars:
+    monit_services:
+      - name: SSHd
+        type: process
+        target: /var/run/sshd.pid
+        start: /usr/sbin/service sshd start
+        stop: /usr/sbin/service sshd stop
+      - name: Internet
+        type: host
+        target: google.com
+        rules:
+          - "if failed port 443 type tcpSSL protocol http then alert"
+      - name: localhost
+        type: system
+        rules:
+          - "if loadavg (1min) > 2 then alert"
+          - "if loadavg (5min) > 2 then alert"
+          - "if memory usage > 75% then alert"
+          - "if cpu usage (user) > 70% for 8 cycles then alert"
+          - "if cpu usage (system) > 40% for 8 cycles then alert"
+          - "if cpu usage (wait) > 20%  for 8 cycles then alert"
+    monit_webinterface_enabled: true
+    monit_webinterface_acl_rules:
+      - "0.0.0.0/0"
+    monit_webinterface_bind: 0.0.0.0
+
+  roles:
+    - role: '{{playbook_dir}}'
