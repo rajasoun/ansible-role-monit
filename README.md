@@ -1,22 +1,23 @@
-Monit
-========
+# Monit
+-------
 
 Ansible role for configuring Monit. 
 
-Install
+
+## Install
 -------
-Install this role with [ansible-galaxy](https://galaxy.ansible.com/pgolm/monit/).
+Install this role with [ansible-galaxy](https://galaxy.ansible.com/rajasoun/ansible_role_monit).
 
 ```shell
-$ ansible-galaxy install pgolm.monit
+$ ansible-galaxy install rajasoun.ansible_role_monit
 ```
 
-Requirements
+## Requirements
 ------------
 
 An Ansible ready host.
 
-Role Variables
+## Role Variables
 --------------
 
 * `monit_cycle`: Time between checks in seconds. Defaults to `120`.
@@ -55,3 +56,18 @@ Role Variables
 * `monit_webinterface_r_group`: Define group of users allowed to read on web interface. It is only applied when defined and is empty by default.
 * `monit_webinterface_acl_rules`: List of ACL rules for the web interface, such as "localhost" or "hauk:password". It is only applied when defined and is empty by default. You should probably define at least one for the httpd service to start.
 
+## Example
+--------------
+
+```
+monit_services:
+  - name: <vm_name>
+    type: system
+    rules:
+      - "if loadavg (1min) > 2 then alert"
+      - "if loadavg (5min) > 2 then alert"
+      - "if memory usage > 75% then alert"
+      - "if cpu usage (user) > 70% for 8 cycles then alert"
+      - "if cpu usage (system) > 40% for 8 cycles then alert"
+      - "if cpu usage (wait) > 20%  for 8 cycles then alert"
+```
