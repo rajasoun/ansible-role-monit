@@ -31,7 +31,7 @@ $ ./assist.bash multipass setup
 $ ./assist.bash multipass status
 $ ./assist.bash multipass shell
 $ sudo apt-get install ansible -y
-$ ansible-playbook ~/.ansible/roles/rajasoun.ansible_role_monit/local.yml
+$ ansible-playbook -i ~/.ansible/roles/rajasoun.ansible_role_monit/inventory ~/.ansible/roles/rajasoun.ansible_role_monit/local.yml
 ```
 
 ## Role Variables
