@@ -1,4 +1,8 @@
 # {{ ansible_managed }}
+set eventqueue basedir /var/monit/ slots 1000
+{% if mmonit_collector is defined %}
+set mmonit {{mmonit_collector}}
+{% endif %}
 {% if monit_webinterface_enabled %}
 set httpd
   port {{ monit_webinterface_port }}
