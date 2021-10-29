@@ -33,7 +33,7 @@
           - "if filedescriptors >= 90% then alert"
           - "if total filedescriptors > 5000 then alert"
 
-      - name: "Disk : /dev/sda1"
+      - name: "Disk"
         type: filesystem
         target: "/dev/sda1"
         rules:
@@ -41,7 +41,7 @@
           - "if space usage > 80% then alert"
           - "if inode usage > 30000 then alert"
 
-      - name: "Network : eth0"
+      - name: "Network"
         type: network
         target: "eth0"
         rules:
