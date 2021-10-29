@@ -21,18 +21,21 @@
       - name: "{{ ansible_hostname }}"
         type: system
         rules:
-          - "if loadavg (1min) > 2 then alert"
+          - "if loadavg (1min) > 5 then alert"
           - "if loadavg (5min) > 2 then alert"
           - "if memory usage > 75% then alert"
+          - "if swap usage > 25% then alert"
           - "if cpu usage (user) > 70% for 8 cycles then alert"
           - "if cpu usage (system) > 40% for 8 cycles then alert"
           - "if cpu usage (wait) > 20%  for 8 cycles then alert"
 
-      - name: "Disk"
+      - name: "Disk : /dev"
         type: filesystem
-        target: "/home"
+        target: "/dev"
         rules:
-          - "if SPACE usage > 50% then alert"
+          - "if space usage > 60% for 5 times within 15 cycles then alert"
+          - "if space usage > 80% then alert"
+          - "if inode usage > 30000 then alert"
 
     monit_webinterface_enabled: false
     mmonit_server_ip: 192.168.64.52
