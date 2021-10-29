@@ -16,7 +16,7 @@
         target: google.com
         rules:
           - "if failed port 443 type tcpSSL protocol http then alert"
-      - name: monit-vm
+      - name: "{{ ansible_hostname }}"
         type: system
         rules:
           - "if loadavg (1min) > 2 then alert"
