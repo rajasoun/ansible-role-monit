@@ -37,7 +37,7 @@
         rules:
           - "if space usage > 60% for 5 times within 15 cycles then alert"
           - "if space usage > 80% then alert"
-          - "if inode usage > 30000 then alert"
+          - "if inode usage > 80% then alert"
 
     monit_webinterface_enabled: true
     monit_webinterface_acl_rules:
