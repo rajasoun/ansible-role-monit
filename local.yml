@@ -39,16 +39,6 @@
           - "if space usage > 80% then alert"
           - "if inode usage > 30000 then alert"
 
-      - name: "Network"
-        type: network
-        target: "eth0"
-        rules:
-          - "if failed link then alert"
-          - "if changed link then alert"
-          - "if saturation > 90% then alert"
-          - "if download > 10 MB/s then alert"
-          - "if total uploaded > 1 GB in last hour then alert"
-
     monit_webinterface_enabled: true
     monit_webinterface_acl_rules:
       - "localhost"
