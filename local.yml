@@ -25,10 +25,15 @@
           - "if cpu usage (user) > 70% for 8 cycles then alert"
           - "if cpu usage (system) > 40% for 8 cycles then alert"
           - "if cpu usage (wait) > 20%  for 8 cycles then alert"
+
     monit_webinterface_enabled: true
+    monit_webinterface_port: 2812
     monit_webinterface_acl_rules:
-      - "0.0.0.0/0"
+      - "0.0.0.0/0.0.0.0"
+      - "admin:monit"
     monit_webinterface_bind: 0.0.0.0
 
+    mmonit_ip: 127.0.0.1
+    
   roles:
     - role: '{{playbook_dir}}'
