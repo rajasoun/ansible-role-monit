@@ -16,7 +16,7 @@
         target: google.com
         rules:
           - "if failed port 443 type tcpSSL protocol http then alert"
-      - name: localhost
+      - name: monit-vm
         type: system
         rules:
           - "if loadavg (1min) > 2 then alert"
@@ -26,13 +26,7 @@
           - "if cpu usage (system) > 40% for 8 cycles then alert"
           - "if cpu usage (wait) > 20%  for 8 cycles then alert"
 
-    monit_webinterface_enabled: true
-    monit_webinterface_port: 2812
-    monit_webinterface_acl_rules:
-      - "0.0.0.0/0.0.0.0"
-      - "monit:monit"
-    monit_webinterface_bind: 0.0.0.0
-
+    monit_webinterface_enabled: false
     mmonit_server_ip: 192.168.64.52
 
   roles:
