@@ -18,16 +18,20 @@
         rules:
           - "if failed port 443 type tcpSSL protocol http then alert"
 
+      # load average is the number of processes in the system 
+      # run queue per CPU core, averaged over the specified time period
       - name: "{{ ansible_hostname }}"
         type: system
         rules:
-          - "if loadavg (1min) > 5 then alert"
-          - "if loadavg (5min) > 2 then alert"
-          - "if memory usage > 75% then alert"
           - "if swap usage > 25% then alert"
+          - "if loadavg (1min) per core > 2 for 15 cycles then alert"
+          - "if loadavg (5min) per core > 1.5 for 10 cycles then alert"
+          - "if loadavg (15min) per core > 1 for 8 cycles then alert"
           - "if cpu usage (user) > 70% for 8 cycles then alert"
           - "if cpu usage (system) > 40% for 8 cycles then alert"
           - "if cpu usage (wait) > 20%  for 8 cycles then alert"
+          - "if filedescriptors >= 90% then alert"
+          - "if total filedescriptors > 5000 then alert"
 
       - name: "Disk : /dev"
         type: filesystem
@@ -36,6 +40,16 @@
           - "if space usage > 60% for 5 times within 15 cycles then alert"
           - "if space usage > 80% then alert"
           - "if inode usage > 30000 then alert"
+
+      - name: "Network : eth0"
+        type: network
+        target: "eth0"
+        rules:
+          - "if failed link then alert"
+          - "if changed link then alert"
+          - "if saturation > 90% then alert"
+          - "if download > 10 MB/s then alert"
+          - "if total uploaded > 1 GB in last hour then alert"
 
     monit_webinterface_enabled: false
     mmonit_server_ip: 192.168.64.52
