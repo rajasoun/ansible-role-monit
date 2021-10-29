@@ -33,9 +33,9 @@
           - "if filedescriptors >= 90% then alert"
           - "if total filedescriptors > 5000 then alert"
 
-      - name: "Disk : /dev"
+      - name: "Disk : /dev/sda1"
         type: filesystem
-        target: "/dev"
+        target: "/dev/sda1"
         rules:
           - "if space usage > 60% for 5 times within 15 cycles then alert"
           - "if space usage > 80% then alert"
@@ -54,7 +54,7 @@
     monit_webinterface_enabled: true
     monit_webinterface_acl_rules:
       - "localhost"
-    mmonit_server_ip: 192.168.64.52
+    mmonit_server_ip: 10.226.182.151
 
   roles:
     - role: '{{playbook_dir}}'
