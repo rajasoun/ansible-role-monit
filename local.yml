@@ -51,7 +51,9 @@
           - "if download > 10 MB/s then alert"
           - "if total uploaded > 1 GB in last hour then alert"
 
-    monit_webinterface_enabled: false
+    monit_webinterface_enabled: true
+    monit_webinterface_acl_rules:
+      - "localhost"
     mmonit_server_ip: 192.168.64.52
 
   roles:
