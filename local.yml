@@ -44,7 +44,7 @@
       - "localhost"
       - "admin:monit"
 
-    mmonit_server_ip: 10.226.182.151
+    mmonit_server_ip: 192.168.64.52
     mmonit_server_port: 80
 
   roles:
