@@ -3,6 +3,10 @@
 
 Ansible role for configuring Monit. 
 
+## Pre Requisites
+------------
+
+An Ansible ready host.
 
 ## Install
 -------
@@ -12,11 +16,6 @@ Install this role with [ansible-galaxy](https://galaxy.ansible.com/rajasoun/ansi
 $ ansible-galaxy install rajasoun.ansible_role_monit
 $ ansible-playbook -i ~/.ansible/roles/rajasoun.ansible_role_monit/inventory ~/.ansible/roles/rajasoun.ansible_role_monit/local.yml
 ```
-
-## Pre Requisites
-------------
-
-An Ansible ready host.
 
 
 ## Test
