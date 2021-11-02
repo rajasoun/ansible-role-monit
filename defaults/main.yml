@@ -15,13 +15,14 @@ monit_webinterface_enabled: true
 monit_webinterface_bind: 0.0.0.0
 monit_webinterface_port: 2812
 
+mmonit_server_ip: ''
+mmonit_server_port: ''
+
 mmonit_connectors:
   - name: 'Default'
     scheme: http
-    port: 2811
+    port: {{ mmonit_server_port }}
     username: 'monit'
     password: 'monit'
 
-mmonit_server_ip: ''
-
-mmonit_collector: "{{ mmonit_connectors.0.scheme | default('http') }}://{{ mmonit_connectors.0.username }}:{{ mmonit_connectors.0.password }}@{{ mmonit_server_ip }}:{{ mmonit_connectors.0.port }}/collector"
+mmonit_collector: "{{ mmonit_connectors.0.scheme | default('http') }}://{{ mmonit_connectors.0.username }}:{{ mmonit_connectors.0.password }}@{{ mmonit_server_ip }}:{{ mmonit_server_port }}/collector"
