@@ -21,7 +21,7 @@ mmonit_server_port: ''
 mmonit_connectors:
   - name: 'Default'
     scheme: http
-    port: {{ mmonit_server_port }}
+    port: '{{ mmonit_server_port }}'
     username: 'monit'
     password: 'monit'
 
