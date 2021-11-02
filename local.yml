@@ -44,8 +44,15 @@
       - "localhost"
       - "admin:monit"
 
+    # SSL Connection to MMonit
+    mmonit_server_scheme: https 
     mmonit_server_ip: 192.168.64.52
-    mmonit_server_port: 80
+    mmonit_server_port: 443
+
+    # # Non SSL Connection to MMonit
+    # mmonit_server_scheme: http
+    # mmonit_server_ip: 192.168.64.52
+    # mmonit_server_port: 80
 
   roles:
     - role: '{{playbook_dir}}'

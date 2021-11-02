@@ -14,6 +14,14 @@ Install this role with [ansible-galaxy](https://galaxy.ansible.com/rajasoun/ansi
 
 ```shell
 $ ansible-galaxy install rajasoun.ansible_role_monit
+```
+
+## Running the Playbook 
+-------
+
+Edit `mmonit_server_ip` in `~/.ansible/roles/rajasoun.ansible_role_monit/local.yml` and choose ssl or non-ssl
+
+```
 $ ansible-playbook -i ~/.ansible/roles/rajasoun.ansible_role_monit/inventory ~/.ansible/roles/rajasoun.ansible_role_monit/local.yml
 ```
 

@@ -20,9 +20,7 @@ mmonit_server_port: ''
 
 mmonit_connectors:
   - name: 'Default'
-    scheme: http
-    port: '{{ mmonit_server_port }}'
     username: 'monit'
     password: 'monit'
 
-mmonit_collector: "{{ mmonit_connectors.0.scheme | default('http') }}://{{ mmonit_connectors.0.username }}:{{ mmonit_connectors.0.password }}@{{ mmonit_server_ip }}:{{ mmonit_server_port }}/collector"
+mmonit_collector: "{{ mmonit_server_scheme }}://{{ mmonit_connectors.0.username }}:{{ mmonit_connectors.0.password }}@{{ mmonit_server_ip }}:{{ mmonit_server_port }}/collector"
