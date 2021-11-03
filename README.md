@@ -13,7 +13,7 @@ An Ansible ready host.
 Install this role with [ansible-galaxy](https://galaxy.ansible.com/rajasoun/ansible_role_monit).
 
 ```shell
-$ ansible-galaxy install rajasoun.ansible_role_monit
+$ ansible-galaxy install -r requirements.yml
 ```
 
 ## Running the Playbook 
