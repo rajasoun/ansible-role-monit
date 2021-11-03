@@ -55,5 +55,5 @@
     # mmonit_server_port: 80
 
   roles:
-    - role: ansible-role-monit #'{{playbook_dir}}'
+    - role: rajasoun.ansible_role_monit #'{{playbook_dir}}'
     - role: cloudalchemy.node_exporter
